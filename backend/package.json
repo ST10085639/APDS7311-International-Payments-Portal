@@ -1,10 +1,12 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend for APDS Payments Portal",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +21,9 @@
     "express-brute": "^1.0.1",
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
+    "mongodb": "^6.13.0",
     "mongoose": "^8.9.6",
+    "nodemon": "^3.1.9",
     "xss-clean": "^0.1.4"
   }
 }
