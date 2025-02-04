@@ -28,4 +28,4 @@ jobs:
 workflows:
   sonarqube-workflow:
     jobs:
-      - sonarqube
+      - sonarqube 
