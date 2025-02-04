@@ -27,13 +27,17 @@ router.post('/register', async (req, res) => {
             userFirstName,
             userLastName,
             currency,
-            swiftCode
+            swiftCode,
+            accountNumber,
+            idNumber
         });
+
         await newUser.save();
 
-        res.status(201).json({ message: 'User registered successfully' });
+        res.status(201).json({ message: 'User registered successfully', userId: newUser._id });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Registration Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
@@ -54,9 +58,10 @@ router.post('/login', async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(401).json({ error: 'Invalid credentials' });
 
-        res.status(200).json({ message: 'Login successful', userId: user._id });
+        res.status(200).json({ message: 'Login successful', userId: user._id, userDetails: { userFirstName: user.userFirstName, userLastName: user.userLastName, currency: user.currency, swiftCode: user.swiftCode } });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error('Login Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 

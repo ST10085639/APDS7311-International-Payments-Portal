@@ -20,17 +20,59 @@ const Register = () => {
 
     return (
         <div className="container mt-5">
-            <h2 className="text-center">Register</h2>
-            <form onSubmit={handleSubmit} className="w-50 mx-auto">
-                <input type="text" className="form-control mb-3" placeholder="First Name" onChange={(e) => setFormData({ ...formData, userFirstName: e.target.value })} />
-                <input type="text" className="form-control mb-3" placeholder="Last Name" onChange={(e) => setFormData({ ...formData, userLastName: e.target.value })} />
-                <input type="text" className="form-control mb-3" placeholder="Username" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-                <input type="password" className="form-control mb-3" placeholder="Password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-                <input type="text" className="form-control mb-3" placeholder="Currency" onChange={(e) => setFormData({ ...formData, currency: e.target.value })} />
-                <input type="text" className="form-control mb-3" placeholder="SWIFT Code" onChange={(e) => setFormData({ ...formData, swiftCode: e.target.value })} />
-                <button type="submit" className="btn btn-primary w-100">Register</button>
-            </form>
-        </div>
+        <h2 className="text-center">Register</h2>
+        <form onSubmit={handleSubmit} className="w-50 mx-auto">
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="First Name" 
+                onChange={(e) => setFormData({ ...formData, userFirstName: e.target.value })} 
+            />
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="Last Name" 
+                onChange={(e) => setFormData({ ...formData, userLastName: e.target.value })} 
+            />
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="Username" 
+                onChange={(e) => setFormData({ ...formData, username: e.target.value })} 
+            />
+            <input 
+                type="password" 
+                className="form-control mb-3" 
+                placeholder="Password" 
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
+            />
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="Currency" 
+                onChange={(e) => setFormData({ ...formData, currency: e.target.value })} 
+            />
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="SWIFT Code" 
+                onChange={(e) => setFormData({ ...formData, swiftCode: e.target.value })} 
+            />
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="Account Number" 
+                onChange={(e) => setFormData({ ...formData, accountNumber: e.target.value })} 
+            />
+            <input 
+                type="text" 
+                className="form-control mb-3" 
+                placeholder="ID Number" 
+                onChange={(e) => setFormData({ ...formData, idNumber: e.target.value })} 
+            />
+            <button type="submit" className="btn btn-primary w-100">Register</button>
+        </form>
+    </div>
     );
 };
 
