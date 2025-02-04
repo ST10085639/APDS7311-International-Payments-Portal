@@ -3,7 +3,7 @@ import { registerUser } from '../api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Register = () => {
-    const [formData, setFormData] = useState({ username: '', password: '', userFirstName: '', userLastName: '', idNumber: '', accountNumber: '' });
+    const [formData, setFormData] = useState({ username: '', password: '', userFirstName: '', userLastName: '', currency: '', swiftCode: '' });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,10 +20,16 @@ const Register = () => {
             <h2 className="text-center">Register</h2>
             <form onSubmit={handleSubmit} className="w-50 mx-auto">
                 <div className="mb-3">
-                    <input type="text" className="form-control" placeholder="Username" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+                    <input type="text" className="form-control" placeholder="First Name" onChange={(e) => setFormData({ ...formData, userFirstName: e.target.value })} />
                 </div>
                 <div className="mb-3">
-                    <input type="password" className="form-control" placeholder="Password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+                    <input type="text" className="form-control" placeholder="Last Name" onChange={(e) => setFormData({ ...formData, userLastName: e.target.value })} />
+                </div>
+                <div className="mb-3">
+                    <input type="text" className="form-control" placeholder="Currency" onChange={(e) => setFormData({ ...formData, currency: e.target.value })} />
+                </div>
+                <div className="mb-3">
+                    <input type="text" className="form-control" placeholder="SWIFT Code" onChange={(e) => setFormData({ ...formData, swiftCode: e.target.value })} />
                 </div>
                 <button type="submit" className="btn btn-primary w-100">Register</button>
             </form>
