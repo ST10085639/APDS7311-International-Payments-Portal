@@ -9,6 +9,10 @@ router.post('/register', async (req, res) => {
     try {
         const { username, password, userFirstName, userLastName, currency, swiftCode } = req.body;
 
+        if (!username || !password || !userFirstName || !userLastName || !currency || !swiftCode) {
+            return res.status(400).json({ error: 'All fields are required' });
+        }
+
         // Check if user already exists
         const existingUser = await User.findOne({ username });
         if (existingUser) return res.status(400).json({ error: 'Username already exists' });
@@ -37,6 +41,10 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
+
+        if (!username || !password) {
+            return res.status(400).json({ error: 'Username and password are required' });
+        }
 
         // Find user by username
         const user = await User.findOne({ username });

@@ -1,23 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Register from './components/Register';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import authRoutes from './routes/auth.js';
 
-const App = () => {
-    return (
-        <Router>
-            <Navbar />
-            <div className="container mt-3">
-                <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
-            </div>
-        </Router>
-    );
-};
-export default App;
+dotenv.config();
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use('/api', authRoutes); // ✅ API Routes
+
+// Default Route for Home (Prevents 404)
+app.get('/', (req, res) => {
+    res.send('Welcome to the APDS Payments API');
+});
+
+export default app;
